@@ -9,28 +9,28 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setLoading(true);
+    e.preventDefault();
+    setLoading(true);
 
-  try {
-    const response = await fetch('https://formspree.io/f/xovkbdwy', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email }),
-    });
+    try {
+      const response = await fetch('https://formspree.io/f/xovkbdwy', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
 
-    if (response.ok) {
-      setSubmitted(true);
-      setEmail('');
+      if (response.ok) {
+        setSubmitted(true);
+        setEmail('');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    } finally {
+      setLoading(false);
     }
-  } catch (error) {
-    console.error('Error:', error);
-  } finally {
-    setLoading(false);
-  }
-};
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
@@ -55,7 +55,7 @@ export default function Home() {
             </span>
           </h2>
           <p className="text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed">
-            We keep buying books we never finish. It's frustrating, right?
+            We keep buying books we never finish. It&apos;s frustrating, right?
             What if putting a little money on the line could actually make you finish them?
           </p>
         </div>
@@ -63,7 +63,7 @@ export default function Home() {
         {/* The Problem */}
         <div className="bg-gradient-to-br from-white to-orange-50 border-2 border-orange-300 rounded-xl p-8 mb-8 shadow-lg">
           <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-            <span className="text-orange-500">📖</span> Here's the deal:
+            <span className="text-orange-500">📖</span> Here&apos;s the deal:
           </h3>
           <div className="space-y-3 text-gray-800 text-lg">
             <p className="flex items-start gap-2">
@@ -80,7 +80,7 @@ export default function Home() {
             </p>
             <p className="flex items-start gap-2">
               <span className="text-red-600 font-bold">✗</span>
-              Don't finish? Your $5 goes to people who did
+              Don&apos;t finish? Your $5 goes to people who did
             </p>
           </div>
         </div>
@@ -91,7 +91,7 @@ export default function Home() {
             <Target className="w-10 h-10 text-green-600 mb-3" />
             <h4 className="font-bold text-gray-900 text-lg mb-2">Win Money</h4>
             <p className="text-gray-700">
-              Finish your book and earn bonus cash from people who didn't. Real motivation.
+              Finish your book and earn bonus cash from people who didn&apos;t. Real motivation.
             </p>
           </div>
 
@@ -107,7 +107,7 @@ export default function Home() {
             <CheckCircle className="w-10 h-10 text-purple-600 mb-3" />
             <h4 className="font-bold text-gray-900 text-lg mb-2">Your Rules</h4>
             <p className="text-gray-700">
-              Choose your book, set your deadline, pick your amount. You're in control.
+              Choose your book, set your deadline, pick your amount. You&apos;re in control.
             </p>
           </div>
         </div>
@@ -118,7 +118,7 @@ export default function Home() {
             Want to finally finish those books?
           </h3>
           <p className="text-white/90 text-lg mb-6">
-            We're building this right now. Join the waitlist and be the first to try it.
+            We&apos;re building this right now. Join the waitlist and be the first to try it.
           </p>
 
           {!submitted ? (
@@ -144,10 +144,10 @@ export default function Home() {
           ) : (
             <div className="bg-white border-2 border-orange-200 rounded-lg p-6 max-w-md mx-auto">
               <p className="text-gray-900 font-bold text-lg">
-                ✓ You're on the list!
+                ✓ You&apos;re on the list!
               </p>
               <p className="text-gray-700 mt-2">
-                We'll email you when it's ready to try.
+                We&apos;ll email you when it&apos;s ready to try.
               </p>
             </div>
           )}
